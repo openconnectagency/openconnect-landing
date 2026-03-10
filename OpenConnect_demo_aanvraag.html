@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gratis Demo Campagne Aanvragen | OpenConnect Agency</title>
+    <meta name="description" content="Ontvang een op maat gemaakte demo campagne voor jouw merk. Binnen 24 uur een voorbeeld van jouw social media potentieel.">
+    
+    <!-- Google Analytics 4 - VERVANG G-XXXXXXXXXX MET JE EIGEN ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+        gtag('config', 'G-XXXXXXXXXX', {
+            'send_page_view': true,
+            'custom_map': {'campaign_source': 'utm_source', 'campaign_medium': 'utm_medium'}
+        });
+        
+        function getUTMParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                source: params.get('utm_source') || 'direct',
+                medium: params.get('utm_medium') || 'none',
+                campaign: params.get('utm_campaign') || 'none',
+                content: params.get('utm_content') || 'none',
+                term: params.get('utm_term') || 'none'
+            };
+        }
+        
+        const utms = getUTMParams();
+        gtag('event', 'page_view', {
+            'page_title': document.title,
+            'page_location': window.location.href,
+            'campaign_source': utms.source,
+            'campaign_medium': utms.medium,
+            'campaign_name': utms.campaign,
+            'campaign_content': utms.content
+        });
+        
+        console.log('UTM Params detected:', utms);
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sage-green: #8a9d86;
+            --sage-dark: #7a8d76;
+            --sage-light: rgba(138, 157, 134, 0.1);
+            --brown: #51360C;
+            --white: #FFFFFF;
+            --bg-light: #F8F7F4;
+            --text-dark: #1a1a1a;
+            --text-body: #555555;
+            --text-muted: #666666;
+            --border: #e5e5e5;
+            --shadow: rgba(0, 0, 0, 0.06);
+            --shadow-hover: rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-box {
+            width: 48px;
+            height: 48px;
+            background: var(--sage-green);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .logo-text-inner {
+            color: white;
+            font-weight: 700;
+            font-size: 10px;
+            letter-spacing: -0.3px;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .logo-agency {
+            position: absolute;
+            top: 3px;
+            right: 2px;
+            font-size: 5px;
+            color: white;
+            letter-spacing: 0.5px;
+            transform: rotate(15deg);
+            font-weight: 600;
+        }
+
+        .logo-brand {
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-cta {
+            background: var(--sage-green);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--sage-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding: 120px 5% 80px;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--sage-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 4vw, 48px);
+            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+        }
+
+        .hero h1 .highlight {
+            color: var(--brown);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-body);
+            line-height: 1.7;
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .trust-indicators {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .trust-icon {
+            font-size: 16px;
+        }
+
+        /* Form Card */
+        .form-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px var(--shadow-hover);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .form-header {
+            margin-bottom: 28px;
+        }
+
+        .form-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .form-header p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 15px;
+            font-family: inherit;
+            color: var(--text-dark);
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--sage-green);
+            box-shadow: 0 0 0 3px rgba(138, 157, 134, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: #aaa;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--sage-green);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .submit-btn:hover {
+            background: var(--sage-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(138, 157, 134, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .form-footer {
+            margin-top: 16px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .success-state {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-state.active {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--sage-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 40px;
+            color: white;
+            animation: scaleIn 0.5s ease;
+        }
+
+        .success-state h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .success-state p {
+            color: var(--text-body);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .success-details {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .success-details h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .success-details ul {
+            list-style: none;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .success-details li {
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .success-details li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--sage-green);
+            font-weight: bold;
+        }
+
+        .reset-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-body);
+            padding: 12px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .reset-btn:hover {
+            border-color: var(--sage-green);
+            color: var(--sage-green);
+        }
+
+        .features {
+            padding: 100px 5%;
+            background: var(--bg-light);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 .highlight {
+            color: var(--brown);
+        }
+
+        .section-header p {
+            color: var(--text-body);
+            font-size: 18px;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px var(--shadow-hover);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--sage-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 24px;
+            color: var(--sage-green);
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .social-proof {
+            padding: 80px 5%;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--sage-green);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .how-it-works {
+            padding: 100px 5%;
+            background: var(--bg-light);
+        }
+
+        .steps-container {
+            max-width: 1000px;
+            margin: 60px auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 20%;
+            right: 20%;
+            height: 2px;
+            background: var(--border);
+            z-index: 0;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            max-width: 200px;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            background: var(--sage-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .step p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .cta-section {
+            padding: 100px 5%;
+            background: var(--sage-green);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 32px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--white);
+            color: var(--sage-green);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 80px 5% 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            line-height: 1.7;
+            margin-top: 20px;
+        }
+
+        .footer-links h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--sage-green);
+        }
+
+        .footer-newsletter p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .newsletter-form button {
+            padding: 12px 20px;
+            background: var(--sage-green);
+            border: none;
+            border-radius: 8px;
+            color: var(--white);
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--sage-dark);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--sage-green);
+            transform: translateY(-2px);
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--white);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .trust-indicators {
+                justify-content: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+
+            .steps-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .steps-container::before {
+                display: none;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-cta {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 5% 60px;
+            }
+
+            .form-card {
+                padding: 28px;
+            }
+
+            .stats-container {
+                gap: 40px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-box">
+                    <div class="logo-text-inner">Open<br>Connect</div>
+                    <div class="logo-agency">AGENCY</div>
+                </div>
+                <span class="logo-brand">OpenConnect</span>
+            </a>
+            <a href="#form" class="nav-cta">Start nu</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-label">EXCLUSIEVE DEMO</span>
+                <h1>
+                    Ontdek jouw <span class="highlight">social media potentieel</span> met een <span class="highlight">demo campagne</span> op maat
+                </h1>
+                <p class="hero-subtitle">
+                    Vul je gegevens in en wij nemen contact met u op om een voorbeeld van hoe jouw merk zou kunnen groeien. Geen verplichtingen, alleen waardevolle inzichten.
+                </p>
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <span class="trust-icon">⚡</span>
+                        <span>Binnen 3 dagen</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">🔒</span>
+                        <span>Geen verplichtingen</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">✓</span>
+                        <span>100% gratis</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-card" id="form">
+                <div class="form-content" id="formContent">
+                    <div class="form-header">
+                        <h2>Vraag je demo aan</h2>
+                        <p>We sturen je demo naar:</p>
+                    </div>
+
+                    <form id="leadForm" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Naam *</label>
+                            <input type="text" id="name" name="name" required placeholder="Jan Jansen">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="jan@bedrijf.nl">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Bedrijfsnaam *</label>
+                            <input type="text" id="company" name="company" required placeholder="Jouw Bedrijf B.V.">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="website">Website (optioneel)</label>
+                            <input type="url" id="website" name="website" placeholder="www.jouwwebsite.nl">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="challenge">Wat is je grootste uitdaging?</label>
+                            <select id="challenge" name="challenge">
+                                <option value="">Selecteer een optie...</option>
+                                <option value="bereik">Meer bereik op social media</option>
+                                <option value="engagement">Betere engagement met volgers</option>
+                                <option value="conversie">Meer conversie/sales</option>
+                                <option value="content">Content strategie ontwikkelen</option>
+                                <option value="influencer">Influencer marketing starten</option>
+                                <option value="anders">Anders</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            Verstuur aanvraag →
+                        </button>
+                    </form>
+
+                    <div class="form-footer">
+                        <span>🔒</span>
+                        <span>Je gegevens zijn veilig. We spammen niet.</span>
+                    </div>
+                </div>
+
+                <div class="success-state" id="successState">
+                    <div class="success-icon">✓</div>
+                    <h3>Bedankt voor je aanvraag!</h3>
+                    <p>We hebben je gegevens ontvangen en nemen binnen 3 dagen contact met je op.</p>
+                    
+                    <div class="success-details">
+                        <h4>Wat gebeurt er nu?</h4>
+                        <ul>
+                            <li>We analyseren je huidige social media aanwezigheid</li>
+                            <li>We maken een op maat gemaakte demo campagne</li>
+                            <li>We plannen een kort gesprek om de resultaten te bespreken</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="reset-btn" onclick="resetForm()">Nog een aanvraag indienen</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-header">
+            <h2>Wat krijg je in je <span class="highlight">demo</span>?</h2>
+            <p>Een complete analyse die direct inzetbaar is voor jouw groei</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3>Voorbeeld Content</h3>
+                <p>3 voorbeeld posts speciaal ontworpen voor jouw doelgroep en merkstijl</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Strategie Advies</h3>
+                <p>Concrete, direct toepasbare tips gebaseerd op jouw specifieke situatie</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>90-Dagen Groeiplan</h3>
+                <p>Stappenplan om je volgers te verdubbelen met realistische mijlpalen</p>
+            </div>
+        </div>
+    </section>
+
+ 
+    <!-- How it Works -->
+    <section class="how-it-works">
+        <div class="section-header">
+            <h2>Hoe werkt het?</h2>
+            <p>Drie simpele stappen naar jouw demo</p>
+        </div>
+        
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Vul het formulier in</h3>
+                <p>2 minuten van je tijd</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Ontvang je demo</h3>
+                <p>Binnen 3 dagen in je inbox</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Start je groei</h3>
+                <p>Met concrete acties</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Klaar om te starten?</h2>
+        <p>Je demo wacht op je</p>
+        <a href="#form" class="cta-btn">Vraag nu aan →</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-box">
+                        <div class="logo-text-inner">Open<br>Connect</div>
+                        <div class="logo-agency">AGENCY</div>
+                    </div>
+                    <span class="logo-brand" style="color: white;">OpenConnect</span>
+                </div>
+                <p>Premium social media beheer, content creatie en influencer marketing voor merken die het verschil willen maken.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Social Media Beheer</a></li>
+                    <li><a href="#">Content Creatie</a></li>
+                    <li><a href="#">Influencer Marketing</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Bedrijf</h4>
+                <ul>
+                    <li><a href="#">Over Ons</a></li>
+                    <li><a href="#">Platform</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h4>Blijf op de hoogte</h4>
+                <p>Ontvang de laatste updates over ons platform en marketing tips.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Bedankt voor je inschrijving!');">
+                    <input type="email" placeholder="je@email.nl" required>
+                    <button type="submit">→</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="social-links">
+                <a href="#">📷</a>
+                <a href="#">💼</a>
+                <a href="#">🐦</a>
+            </div>
+            <div class="footer-copyright">© 2026 OpenConnect Agency. Alle rechten voorbehouden.</div>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Google Sheets URL - JOUW URL HIER
+        const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzpMKkhBAL_QL4_7Epe8dW2ccpnYHynfn3Fy43VjJO6o-ScKgi0lkFGfkqitCD2NcU/exec';
+        
+        // Form handling
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submitBtn');
+            const form = document.getElementById('leadForm');
+            const successState = document.getElementById('successState');
+            const formContent = document.getElementById('formContent');
+            
+            // Get form data
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                company: formData.get('company'),
+                website: formData.get('website'),
+                challenge: formData.get('challenge'),
+                utm_source: utms.source,
+                utm_medium: utms.medium,
+                utm_campaign: utms.campaign,
+                page_url: window.location.href
+            };
+            
+            // Show loading
+            btn.classList.add('loading');
+            btn.innerHTML = 'Verzenden...';
+            
+            // Send to Google Sheets
+            fetch(GOOGLE_SHEET_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(data).toString()
+            })
+            .then(() => {
+                // Track conversion
+                gtag('event', 'generate_lead', {
+                    'currency': 'EUR',
+                    'value': 1.0,
+                    'campaign_source': utms.source
+                });
+                
+                // Show success
+                formContent.style.display = 'none';
+                successState.classList.add('active');
+                
+                console.log('Lead submitted:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Er ging iets mis. Probeer het opnieuw of neem contact met ons op.');
+            })
+            .finally(() => {
+                btn.classList.remove('loading');
+                btn.innerHTML = 'Verstuur aanvraag →';
+            });
+        }
+        
+        function resetForm() {
+            const form = document.getElementById('leadForm');
+            const successState = document.getElementById('successState');
+            const formContent = document.getElementById('formContent');
+            
+            form.reset();
+            successState.classList.remove('active');
+            formContent.style.display = 'block';
+        }
+        
+        // Scroll depth tracking
+        let scrollMarks = {25: false, 50: false, 75: false, 90: false};
+        
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            
+            Object.keys(scrollMarks).forEach(mark => {
+                if (!scrollMarks[mark] && scrollPercent >= parseInt(mark)) {
+                    scrollMarks[mark] = true;
+                    gtag('event', 'scroll_depth', {
+                        'depth': mark + '%',
+                        'campaign_source': utms.source
+                    });
+                }
+            });
+        });
+        
+        // Time on page tracking
+        let timeMarks = {30: false, 60: false, 180: false};
+        
+        setInterval(() => {
+            const timeOnPage = Math.floor(performance.now() / 1000);
+            
+            Object.keys(timeMarks).forEach(mark => {
+                if (!timeMarks[mark] && timeOnPage >= parseInt(mark)) {
+                    timeMarks[mark] = true;
+                    gtag('event', 'time_on_page', {
+                        'time_seconds': mark,
+                        'campaign_source': utms.source
+                    });
+                }
+            });
+        }, 1000);
+    </script>
+
+</body>
+</html>
